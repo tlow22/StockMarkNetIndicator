@@ -27,14 +27,14 @@ n_nodes=len(nodes)
 n_isolated_nodes=n_nodes-N
 
 if n_isolated_nodes != 0:
-	G.add_vertices(n_isolated_nodes)
+    G.add_vertices(n_isolated_nodes)
 N=G.vcount()
 
 length=G.shortest_paths_dijkstra(weights='weight')
 
 temp=0
 for i in length:
-	temp+=sum([1.0/x for x in i if x!=0])
+    temp+=sum([1.0/x for x in i if x!=0])
 ce=float(temp)/float(N*(N-1))
 
 print(ce)

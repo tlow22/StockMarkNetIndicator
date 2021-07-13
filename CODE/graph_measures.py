@@ -19,37 +19,37 @@ G = nx.read_edgelist(in_file, comments='#',data=(('metric',float),))
 G.remove_edges_from(nx.selfloop_edges(G))
 
 if measure == "EdgeCount":
-  	print( str(G.number_of_edges()) )
+    print( str(G.number_of_edges()) )
   
 elif measure == "AverageDegree":
-  	dsum = 0
-  	tot = 0
-  	for item in list(G.degree()):
-    		dsum = dsum + item[1]
-    		tot = tot + 1
- 	
-	avg = float(dsum) / float(tot)
-	print(str(avg))   
+    dsum = 0
+    tot = 0
+    for item in list(G.degree()):
+        dsum = dsum + item[1]
+        tot = tot + 1
+     
+    avg = float(dsum) / float(tot)
+    print(str(avg))   
 
 elif measure == "AverageWeightedDegree":
-  	dsum = 0
-  	tot = 0
-  	for item in list(G.degree(weight='metric')):
-    		dsum = dsum + item[1]
-    		tot = tot + 1
- 	
-	avg = float(dsum) / float(tot)
-	print(str(avg))     
+    dsum = 0
+    tot = 0
+    for item in list(G.degree(weight='metric')):
+        dsum = dsum + item[1]
+        tot = tot + 1
+     
+    avg = float(dsum) / float(tot)
+    print(str(avg))     
 
 elif measure == "EdgeDensity":
-  	tot = 0.5*( G.number_of_nodes()*(G.number_of_nodes()-1) )
-  	print( str( float(G.number_of_edges()) / tot ) )
+    tot = 0.5*( G.number_of_nodes()*(G.number_of_nodes()-1) )
+    print( str( float(G.number_of_edges()) / tot ) )
 
 elif measure == "Diameter":
- 	print(str(float(nx.diameter(G))))
+    print(str(float(nx.diameter(G))))
 
 elif measure == "AverageClustering":
- 	print(str(float(nx.average_clustering(G))))
+    print(str(float(nx.average_clustering(G))))
 
 elif measure == "AverageShortestPathLength":
- 	print(str(float(nx.average_shortest_path_length(G,weight='metric'))))
+    print(str(float(nx.average_shortest_path_length(G,weight='metric'))))
